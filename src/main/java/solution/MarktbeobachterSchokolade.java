@@ -5,8 +5,8 @@ import exercise.Marktinventar;
 
 import java.util.concurrent.Semaphore;
 
-public class MarktbeobachterZucker extends AMarktbeobachter {
-    public MarktbeobachterZucker(Semaphore zutatSem, Semaphore marktsignalBäcker1Sem, Semaphore marktsignalBäcker2Sem, Semaphore inventarMutex, Marktinventar marktinventar) {
+public class MarktbeobachterSchokolade extends AMarktbeobachter {
+    public MarktbeobachterSchokolade(Semaphore zutatSem, Semaphore marktsignalBäcker1Sem, Semaphore marktsignalBäcker2Sem, Semaphore inventarMutex, Marktinventar marktinventar) {
         super(zutatSem, marktsignalBäcker1Sem, marktsignalBäcker2Sem, inventarMutex, marktinventar);
     }
 
@@ -16,15 +16,15 @@ public class MarktbeobachterZucker extends AMarktbeobachter {
             try {
                 zutatSem.acquire();
                 inventarMutex.acquire();
-                marktinventar.setzeZuckerverfügbarkeit(true);
-                if (marktinventar.istSchokoladeVerfügbar()) {
+                marktinventar.setzeSchokoladenverfügbarkeit(true);
+                if (marktinventar.sindMandelnVerfügbar()) {
                     marktsignalBäcker1Sem.release();
                     marktinventar.setzeSchokoladenverfügbarkeit(false);
-                    marktinventar.setzeZuckerverfügbarkeit(false);
-                } else if (marktinventar.sindMandelnVerfügbar()) {
+                    marktinventar.setzeMandelverfügbarkeit(false);
+                } else if (marktinventar.istZuckerVefügbar()) {
                     marktsignalBäcker2Sem.release();
                     marktinventar.setzeZuckerverfügbarkeit(false);
-                    marktinventar.setzeMandelverfügbarkeit(false);
+                    marktinventar.setzeSchokoladenverfügbarkeit(false);
                 }
                 inventarMutex.release();
             } catch (InterruptedException e) {

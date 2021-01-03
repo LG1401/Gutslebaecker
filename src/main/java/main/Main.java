@@ -18,13 +18,13 @@ public class Main {
         AtomicInteger eventnummer = new AtomicInteger(0);
 
         AMarktplatz marktplatz = new Marktplatz(eventnummer);
-/*
+
         AGutslewirtschaft gutsleWirtschaft = new Gutslewirtschaft(
                 marktplatz,
                 eventnummer
         );
         gutsleWirtschaft.setzeWirtschaftInGang();
-*/        marktplatz.starteNachschubproduktion();
+        marktplatz.starteNachschubproduktion();
 
         System.out.println("Gutslewirtschaft läuft.");
     }

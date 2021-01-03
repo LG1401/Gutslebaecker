@@ -1,12 +1,12 @@
 package solution;
 
-import exercise.AMarktbeobachter;
-import exercise.Marktinventar;
+        import exercise.AMarktbeobachter;
+        import exercise.Marktinventar;
 
-import java.util.concurrent.Semaphore;
+        import java.util.concurrent.Semaphore;
 
-public class MarktbeobachterZucker extends AMarktbeobachter {
-    public MarktbeobachterZucker(Semaphore zutatSem, Semaphore marktsignalBäcker1Sem, Semaphore marktsignalBäcker2Sem, Semaphore inventarMutex, Marktinventar marktinventar) {
+public class MarktbeobachterMandel extends AMarktbeobachter {
+    public MarktbeobachterMandel(Semaphore zutatSem, Semaphore marktsignalBäcker1Sem, Semaphore marktsignalBäcker2Sem, Semaphore inventarMutex, Marktinventar marktinventar) {
         super(zutatSem, marktsignalBäcker1Sem, marktsignalBäcker2Sem, inventarMutex, marktinventar);
     }
 
@@ -16,12 +16,12 @@ public class MarktbeobachterZucker extends AMarktbeobachter {
             try {
                 zutatSem.acquire();
                 inventarMutex.acquire();
-                marktinventar.setzeZuckerverfügbarkeit(true);
+                marktinventar.setzeMandelverfügbarkeit(true);
                 if (marktinventar.istSchokoladeVerfügbar()) {
                     marktsignalBäcker1Sem.release();
                     marktinventar.setzeSchokoladenverfügbarkeit(false);
-                    marktinventar.setzeZuckerverfügbarkeit(false);
-                } else if (marktinventar.sindMandelnVerfügbar()) {
+                    marktinventar.setzeMandelverfügbarkeit(false);
+                } else if (marktinventar.istZuckerVefügbar()) {
                     marktsignalBäcker2Sem.release();
                     marktinventar.setzeZuckerverfügbarkeit(false);
                     marktinventar.setzeMandelverfügbarkeit(false);

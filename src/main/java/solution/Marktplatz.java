@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Marktplatz extends AMarktplatz {
 
-    protected volatile AtomicInteger eventnummer;
+    protected AtomicInteger eventnummer;
 
     public Marktplatz(AtomicInteger eventnummer) {
         markplatzSem = new Semaphore(1);
