@@ -1,9 +1,9 @@
 
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–†åŒ
 V
 java:S2134"@Don't extend "Thread", since the "run" method is not overridden.(·à•æ
+v	java:S116	"aRename this field "marktsignalBÃ¤cker2Sem" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ðÝŽ
 f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø§Ž»
 O
 java:S5993"9Change the visibility of this constructor to "protected".(õªáÃ
 {	java:S116"aRename this field "marktsignalBÃ¤cker1Sem" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿˆ÷ùüÿÿÿÿ
-v	java:S116	"aRename this field "marktsignalBÃ¤cker2Sem" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ðÝŽ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–†åŒ
